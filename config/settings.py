@@ -8,15 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-deploy = False
-if(deploy):
-    # deploy
-    SECRET_KEY = os.getenv('SECRET_KEY', 'LIARA_URL is not set.')
-    DEBUG = True
-else:
-    # local
-    SECRET_KEY = config('SECRET_KEY')
-    DEBUG = True
+SECRET_KEY = "dkfgjiuerhguehrgedjgnerfghiuer"
+DEBUG = True
 
 ALLOWED_HOSTS = ["*","89.199.35.132","192.168.45.68",]
 CORS_ORIGIN_ALLOW_ALL = True
@@ -100,24 +93,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # SQLITE
-if(deploy):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('database_name', 'LIARA_URL is not set.'),
-            'USER': os.getenv('database_username', 'LIARA_URL is not set.'),
-            'PASSWORD': os.getenv('password', 'LIARA_URL is not set.'),
-            'HOST': os.getenv('database_hostname_or_ip', 'LIARA_URL is not set.'),
-            'PORT': os.getenv('database_port', 'LIARA_URL is not set.'),
-        }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 
 
