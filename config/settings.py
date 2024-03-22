@@ -5,10 +5,18 @@ from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+deploy = True
+if(deploy):
+    # deploy
+    SECRET_KEY = os.getenv('SECRET_KEY', 'LIARA_URL is not set.')
+    DEBUG = os.getenv('DEBUG', 'LIARA_URL is not set.')
+    
+else:
+    SECRET_KEY = "dkfgjiuerhguehrgedjgnerfghiuer"
+    DEBUG = True
 
 
-SECRET_KEY = "dkfgjiuerhguehrgedjgnerfghiuer"
-DEBUG = True
+
 
 ALLOWED_HOSTS = ["*","89.199.35.132","192.168.45.68",]
 CORS_ORIGIN_ALLOW_ALL = True
@@ -96,7 +104,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'media/db.sqlite3',
     }
 }
 
