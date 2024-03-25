@@ -1,11 +1,11 @@
 from django.db import models
 #---------------------------
 class Urls(models.Model):
-    applicant_site = models.CharField(max_length=300,default="None",null=True,blank=True)
     url = models.CharField(max_length=500)
+    created = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
-        return self.url
+        return self.url[:20]
 #---------------------------
 
