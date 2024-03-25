@@ -12,7 +12,6 @@ class ScraperAPIView(APIView):
         if serializer.is_valid():
             scraper = Temsah(serializer.validated_data['url'])
             product = scraper.scrape()
-            print(request.META)
             url_obj = Urls(url= serializer.validated_data['url'])
             url_obj.save()
             
