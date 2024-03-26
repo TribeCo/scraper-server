@@ -35,7 +35,7 @@ rpds-py==0.18.0
 six==1.16.0
 soupsieve==2.5
 sqlparse==0.4.4
-temsah==1.1.4
+temsah==2.1.1
 tqdm==4.66.1
 typing-extensions==4.8.0
 tzdata==2023.3
