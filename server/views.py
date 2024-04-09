@@ -35,5 +35,6 @@ class CurrencyAPIView(APIView):
         data = object_currency.scrape()
         print(data)
         return Response({ 'data': data,}) 
+#---------------------------
     
 
