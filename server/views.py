@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from temsah import Temsah
+from temsah import Temsah , Currency
 from rest_framework.response import Response
 from .serializers import *
 from rest_framework import status
@@ -29,4 +29,11 @@ class ClientAPIView(APIView):
 
         return Response({ 'data': response.json(),})       
 #---------------------------
+class CurrencyAPIView(APIView):
+    def get(self,request):
+        object_currency = Currency()
+        data = object_currency.scrape()
+        print(data)
+        return Response({ 'data': data,}) 
+    
 
